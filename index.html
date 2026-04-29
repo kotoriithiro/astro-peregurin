@@ -309,7 +309,7 @@
             <div class="time-grid" id="timeGrid"></div>
           </div>
           <div class="divider"></div>
-          <button class="btn btn-primary" id="btn2" disabled onclick="goStep(3)">お客様情報を入力する →</button>
+          <button class="btn btn-primary" id="btn2" disabled onclick="window.open('https://astro1.jp/p/r/qOD3Du3y', '_blank')">お客様情報を入力する →</button>
           <button class="btn btn-outline" onclick="goStep(1)">← 戻る</button>
         </div>
       </div>
@@ -703,10 +703,13 @@ function renderSummary() {
 }
 
 // ─── Submit ───────────────────────────────────────────────
+const FORMSPREE_URL = "https://formspree.io/f/myasp";
+
 function submitBooking() {
   const id = "AST-" + Date.now().toString(36).toUpperCase();
   const s = sessions[state.session];
   const date = new Date(state.year, state.month, state.day);
+  const dateStr = `${state.year}/${state.month+1}/${state.day}（${DOW_JA[date.getDay()]}） ${state.time}〜`;
   const booking = {
     id,
     status: "confirmed",
@@ -722,8 +725,27 @@ function submitBooking() {
     memo: document.getElementById("fmemo").value,
   };
   saveBooking(booking);
+
+  // Formspree に通知を送信
+  fetch(FORMSPREE_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({
+      "予約ID":       id,
+      "セッション":   `${s.icon} ${s.name}（${s.duration} / ${s.price}）`,
+      "日時":         dateStr,
+      "お名前":       booking.name,
+      "メール":       booking.email,
+      "生年月日":     booking.birth,
+      "出生時刻":     booking.btime || "未入力",
+      "出生地":       booking.place || "未入力",
+      "お相手の生年月日": booking.pbirth || "—",
+      "ご相談内容":   booking.memo || "—",
+    }),
+  }).catch(() => {}); // 送信失敗しても予約フローは止めない
+
   document.getElementById("bookingId").textContent =
-    `予約ID: ${id}\n${s.name} ｜ ${state.year}/${state.month+1}/${state.day}（${DOW_JA[date.getDay()]}） ${state.time}〜`;
+    `予約ID: ${id}\n${s.name} ｜ ${dateStr}`;
   goStep(5);
 }
 
