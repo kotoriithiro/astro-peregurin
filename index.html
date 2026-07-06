@@ -1,8 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
+<!--
+═══════════════════════════════════════════════════════════
+  ✏️ このページの編集のしかた
+═══════════════════════════════════════════════════════════
+  「✏️」マークが付いたコメントの下にある日本語の文章は
+  自由に書き換えてOKです。
+
+  ルールは1つだけ：
+  < と > で囲まれた部分（タグ）は消さない・変えない。
+  例）<h1>ここの文字だけ変える</h1>
+
+  編集が終わったら、Claude Codeに「公開して」と言えば
+  ネットに反映されます。
+
+  デザイン（色・レイアウト）を変えたい時は、自分で触らず
+  Claude Codeに「〇〇して」と頼むのがおすすめです。
+═══════════════════════════════════════════════════════════
+-->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ✏️ ブラウザのタブに表示されるタイトル -->
 <title>PSYCHOLOGICAL ASTROLOGY — SESSION BOOKING</title>
 <style>
   /* ============================================
@@ -302,7 +321,7 @@
 </head>
 <body>
 
-<!-- ティッカー（雰囲気づくり。不要なら削除OK） -->
+<!-- ✏️ 一番上を流れる英字（雰囲気づくり。不要ならこの<div>ごと削除OK） -->
 <div class="ticker">
   <span>PSYCHOLOGICAL ASTROLOGY ▲</span>
   <span>SUN / MOON / ASC — NATAL CHART READING</span>
@@ -313,17 +332,22 @@
 
 <header>
   <div class="container">
+    <!-- ✏️ サイト名（大きい方＋小さい英字） -->
     <div class="logo">ASTRO SESSION<small>PSYCHOLOGICAL ASTROLOGY</small></div>
     <div class="date" id="today"></div>
   </div>
 </header>
 
-<!-- ヒーロー -->
+<!-- ヒーロー（黒い大きなエリア） -->
 <div class="hero">
   <div class="container">
+    <!-- ✏️ 見出しの上の小さい英字 -->
     <div class="label">PERSONAL SESSION — NOW BOOKING</div>
+    <!-- ✏️ メインのキャッチコピー（<br>は改行の意味） -->
     <h1>ホロスコープは、<br>あなたの心の「市況」を映す。</h1>
+    <!-- ✏️ キャッチコピー下の説明文 -->
     <p>心理占星術セッションでは、生まれた瞬間の星の配置＝出生図をもとに、あなたの心の構造・才能・課題を読み解きます。未来を当てる占いではなく、「自分を知る」ための対話の時間です。</p>
+    <!-- ✏️ ボタンの文字 -->
     <a href="#form" class="cta">セッションに申し込む →</a>
   </div>
 </div>
@@ -333,12 +357,15 @@
   <div class="container">
     <div class="section-head">
       <span class="num">01</span>
+      <!-- ✏️ セクション見出し -->
       <h2>心理占星術セッションとは</h2>
     </div>
+    <!-- ✏️ セクションの導入文（<strong>〜</strong>は太字になる） -->
     <p class="lead">
       心理占星術は、ユング心理学と占星術を掛け合わせたアプローチです。ホロスコープを「当たる・当たらない」の予言としてではなく、<strong>心の設計図</strong>として扱います。セッションでは、あなたの出生図を一緒に眺めながら、繰り返してしまうパターンの正体、本来の強み、そして今の悩みが人生のどんなテーマとつながっているのかを言葉にしていきます。
     </p>
     <div class="about-grid">
+      <!-- ✏️ 4つの説明ボックス（h3が見出し、pが本文） -->
       <div class="cell">
         <h3>出生図（ネイタルチャート）を読む</h3>
         <p>生年月日・出生時間・出生地から、あなただけのホロスコープを作成。太陽・月・アセンダントを軸に、心の構造を立体的に読み解きます。</p>
@@ -364,8 +391,10 @@
   <div class="container">
     <div class="section-head">
       <span class="num">02</span>
+      <!-- ✏️ セクション見出し -->
       <h2>セッション概要</h2>
     </div>
+    <!-- ✏️ 概要テーブル（thが左の黒い欄、tdが右の内容。行を増やすときは<tr>〜</tr>を1行コピー） -->
     <table class="spec">
       <tr><th>所要時間</th><td>60分（目安）</td></tr>
       <tr><th>形式</th><td>オンライン（Zoom）</td></tr>
@@ -381,8 +410,10 @@
   <div class="container">
     <div class="section-head">
       <span class="num">03</span>
+      <!-- ✏️ セクション見出し -->
       <h2>お申し込みの流れ</h2>
     </div>
+    <!-- ✏️ 3ステップの説明 -->
     <div class="flow">
       <div class="step">
         <span class="n">01</span>
@@ -408,14 +439,20 @@
   <div class="container">
     <div class="section-head">
       <span class="num">04</span>
+      <!-- ✏️ セクション見出し -->
       <h2>お申し込みフォーム</h2>
     </div>
     <form id="bookingForm">
+      <!-- ✏️ フォーム上の注意書き -->
       <p class="form-note">
         ※ 出生時間が不明な場合は「不明」とご記入ください（読める範囲でお伝えします）。<br>
         ※ セッションのご希望日時は<strong>第3希望まで</strong>ご記入をお願いします。
       </p>
 
+      <!--
+        ⚠️ ここから下のフォーム項目は、文字（labelの文言・placeholderの例文・hintの説明）
+        だけ変えるのはOK。name="〜" の部分は仕組みとつながっているので変えないでください。
+      -->
       <div class="field">
         <label>お名前（ニックネーム可）<span class="req">必須</span></label>
         <input type="text" name="name" required placeholder="例）山田 花子">
@@ -459,6 +496,7 @@
         <textarea name="concern" required placeholder="例）仕事の方向性に迷っています。自分の強みが分からず…"></textarea>
       </div>
 
+      <!-- ✏️ 送信ボタンの文字 -->
       <button type="submit" class="submit-btn">送信して公式LINEへ進む →</button>
     </form>
   </div>
@@ -468,8 +506,10 @@
 <section class="line-section">
   <div class="container">
     <div class="line-box">
+      <!-- ✏️ LINE案内の見出しと説明文 -->
       <h2>公式LINEのご登録をお願いします</h2>
       <p>日程のご連絡・お支払いのご案内・セッション後のフォローはすべて公式LINEで行います。フォーム送信後、必ずご登録ください。</p>
+      <!-- ✏️ ボタンの文字（リンク先は自動で設定されるので href はそのままでOK） -->
       <a class="line-btn" href="https://lin.ee/Ow1oAun" target="_blank">公式LINEに登録する</a>
     </div>
   </div>
@@ -477,10 +517,15 @@
 
 <footer>
   <div class="container">
+    <!-- ✏️ 一番下の英字 -->
     PSYCHOLOGICAL ASTROLOGY SESSION — ALL RIGHTS RESERVED
   </div>
 </footer>
 
+<!--
+  ⚠️ ここから下は「仕組み」の部分です。編集しないでください。
+  （LINEのIDを変えたい時だけ、下の LINE_ID / LINE_URL を書き換え）
+-->
 <script>
   // 公式LINEの設定（設定済み）
   // ① ベーシックID：フォーム送信→トーク遷移に使用
